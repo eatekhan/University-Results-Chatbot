@@ -51,7 +51,7 @@ app.post('/', urlencodedParser, function(req, res){
     const sendreq = ex(rollno)
     async function plswork(){
         var x = await ex(rollno);
-        console.log(`this is inside ${x}`)
+        console.log(`this is insidee ${x}`)
         res.render("submit",{x})
     }
     plswork();
