@@ -16,13 +16,7 @@ async function ex(rollno){
 }
 
 
-    // await driver.takeScreenshot().then(
-    //     function(image, err) {
-    //         require('fs').writeFile('out.png', image, 'base64', function(err) {
-    //             console.log(err);
-    //         });
-    //     }
-    // );
+
 
 function testing(string){
     return `${string}`;
