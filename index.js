@@ -14,13 +14,7 @@ async function ex(rollno){
     console.log(mygpa)
     return mygpa
 }
-
-
-
-
-function testing(string){
-    return `${string}`;
-}
+ 
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
