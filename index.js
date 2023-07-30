@@ -1,9 +1,12 @@
-require('chromedriver')
+
 const {Builder, By, Key, util} = require("selenium-webdriver")
+const chrome = require('selenium-webdriver/chrome')
+const options = new chrome.Options();
+options.addArguments('--headless');
 
 async function ex(rollno){
-    let driver = new Builder().forBrowser("chrome").build();
-    await driver.get("https://www.osmania.ac.in/res07/20220625.jsp");
+    let driver = new Builder().forBrowser("chrome").setChromeOptions(options).build();
+    await driver.get("https://www.osmania.ac.in/res07/20230788.jsp");
     await driver.findElement(By.name('htno')).sendKeys(rollno,Key.RETURN)
     const gpa = await driver.findElement(By.xpath('//*[@id="AutoNumber5"]/tbody/tr[3]/td[2]/b'))
     const mygpa = await gpa.getText().then((x)=>{
@@ -14,7 +17,7 @@ async function ex(rollno){
     console.log(mygpa)
     return mygpa
 }
- 
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -36,13 +39,12 @@ app.get('/submit', function(req,res){
 app.post('/', urlencodedParser, function(req, res){
     const rollno = req.body.Rollno
     console.log(rollno)
-    const sendreq = ex(rollno)
     async function plswork(){
         var x = await ex(rollno);
         console.log(`this is insidee ${x}`)
         res.render("submit",{x})
     }
-    plswork();
+    plswork()
 })
 
 app.listen(3000,() =>{
