@@ -69,7 +69,7 @@ function getBotResponse(input) {
         return "Talk to you later!";
     }
     else if (input == "GPA"){
-        return myreq.innerHTML
+        return "PASSED-"+myreq.innerHTML
     }
 
      else {
