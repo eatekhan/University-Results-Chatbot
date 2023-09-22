@@ -44,10 +44,10 @@ app.post('/', urlencodedParser, function(req, res){
         console.log(`this is insidee ${x}`)
         res.render("submit",{x})
     }
-    //plswork()
-    const x = Math.floor(Math.random()*6 + 5)
-    console.log(x)
-    res.render('submit',{x})
+    plswork()
+    // const x = Math.floor(Math.random()*6 + 5)
+    // console.log(x)
+    // res.render('submit',{x})
 })
 
 app.listen(3000,() =>{
