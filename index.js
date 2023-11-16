@@ -37,17 +37,17 @@ app.get('/submit', function(req,res){
 })
 
 app.post('/', urlencodedParser, function(req, res){
-    const rollno = req.body.Rollno
-    console.log(rollno)
-    async function plswork(){
-        var x = await ex(rollno);
-        console.log(`this is insidee ${x}`)
-        res.render("submit",{x})
-    }
-    plswork()
-    // const x = Math.floor(Math.random()*6 + 5)
-    // console.log(x)
-    // res.render('submit',{x})
+    // const rollno = req.body.Rollno
+    // console.log(rollno)
+    // async function plswork(){
+    //     var x = await ex(rollno);
+    //     console.log(`this is insidee ${x}`)
+    //     res.render("submit",{x})
+    // }
+    // plswork()
+    const x = Math.floor(Math.random()*8 + 5)
+    console.log(x)
+    res.render('submit',{x})
 })
 
 app.listen(3000,() =>{
