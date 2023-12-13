@@ -6,9 +6,9 @@ options.addArguments('--headless');
 
 async function ex(rollno){
     let driver = new Builder().forBrowser("chrome").setChromeOptions(options).build();
-    await driver.get("https://www.osmania.ac.in/res07/20230788.jsp");
+    await driver.get("https://www.osmania.ac.in/res07/20231225.jsp");
     await driver.findElement(By.name('htno')).sendKeys(rollno,Key.RETURN)
-    const gpa = await driver.findElement(By.xpath('//*[@id="AutoNumber5"]/tbody/tr[3]/td[2]/b'))
+    const gpa = await driver.findElement(By.xpath('//*[@id="AutoNumber5"]/tbody/tr[3]/td[3]/b/font'))
     const mygpa = await gpa.getText().then((x)=>{
         return x
     })
@@ -37,17 +37,17 @@ app.get('/submit', function(req,res){
 })
 
 app.post('/', urlencodedParser, function(req, res){
-    // const rollno = req.body.Rollno
-    // console.log(rollno)
-    // async function plswork(){
-    //     var x = await ex(rollno);
-    //     console.log(`this is insidee ${x}`)
-    //     res.render("submit",{x})
-    // }
-    // plswork()
-    const x = Math.floor(Math.random()*8 + 5)
-    console.log(x)
-    res.render('submit',{x})
+    const rollno = req.body.Rollno
+    console.log(rollno)
+    async function plswork(){
+        var x = await ex(rollno);
+        console.log(`this is insidee ${x}`)
+        res.render("submit",{x})
+    }
+    plswork()
+    // const x = Math.floor(Math.random()*8 + 5)
+    // console.log(x)
+    // res.render('submit',{x})
 })
 
 app.listen(3000,() =>{
